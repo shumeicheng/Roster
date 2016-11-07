@@ -7,19 +7,30 @@
 //
 
 import UIKit
+import RealmSwift
 
 class RosterViewController: UIViewController {
-
+    var classes : Classes?
+    var realm : Realm?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        realm = try! Realm()
+        classes = Classes()
+        try! realm?.write(){
+            realm?.add(classes!)
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func createRoster(_ sender: AnyObject) {
+       let vc = storyboard?.instantiateViewController(withIdentifier: "ClassViewController") as! ClassViewController
+        present(vc, animated: true, completion: nil)
+        
     }
-
-
+    
+    @IBAction func listRoster(_ sender: AnyObject) {
+        performSegue(withIdentifier: "TableSeque", sender: self)
+    }
+    
 }
 
