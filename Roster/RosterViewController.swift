@@ -16,20 +16,27 @@ class RosterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         realm = try! Realm()
-        classes = Classes()
-        try! realm?.write(){
-            realm?.add(classes!)
+        classes = realm?.objects(Classes.self).first
+        if( classes == nil) {
+            classes = Classes()
+            try! realm?.write(){
+                realm?.add(classes!)
+            }
         }
     }
 
     @IBAction func createRoster(_ sender: AnyObject) {
-       let vc = storyboard?.instantiateViewController(withIdentifier: "ClassViewController") as! ClassViewController
+       let vc = storyboard?.instantiateViewController(withIdentifier: "ClassAddViewController") as! ClassAddViewController
+        vc.classes = classes
         present(vc, animated: true, completion: nil)
         
     }
     
     @IBAction func listRoster(_ sender: AnyObject) {
-        performSegue(withIdentifier: "TableSeque", sender: self)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ClassListViewController") as! ClassListViewController
+        present(vc, animated: true, completion: nil)
+        
+
     }
     
 }

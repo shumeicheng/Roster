@@ -10,19 +10,22 @@ import Foundation
 import UIKit
 import RealmSwift
 
-class ClassViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+class ClassAddViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     var names = Array(repeating: "Name", count: 35)
     @IBOutlet weak var tableView: UITableView!
     var nameJustEntered = ""
+    var classN = ""
     var tableViewCell: TableViewCell?
     var currentIndex = 0
     var classes: Classes?
+    var thisClass: Class?
     var realm: Realm?
     @IBOutlet weak var className: UITextField!
  
     override func viewDidLoad() {
+       className.delegate = self
        realm = try! Realm()
-       classes = realm?.objects(Classes.self).first
+       
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -35,14 +38,10 @@ class ClassViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if (textField.tag == 1 ){ // class name
-            let thisClass = Class()
-            thisClass.name = textField.text!
-            try! realm?.write {
-                realm?.add(thisClass)
-            }
-           
+            classN = textField.text!
         }else {
             nameJustEntered = textField.text!
+            tableViewCell?.textLabel?.text = nameJustEntered
             tableViewCell!.name.isHidden = true
             names[currentIndex] = textField.text!
             tableView.reloadData()
@@ -69,11 +68,27 @@ class ClassViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBAction func pressDone(_ sender: AnyObject) {
         // create Realm name objects
+        thisClass = Class()
+        thisClass?.name = classN
+
+        try! realm!.write {
+            realm!.add(thisClass!)
+            classes!.classes.append(thisClass!)
+        }
+        
+
         for name in names{
+            if name == "Name" {
+                break
+            }
             let person = Person()
-            person.name = name
-            try! realm?.write {
-                realm?.add(person)
+             person.name = name
+            try! realm!.write {
+                
+                realm!.add(person)
+                thisClass?.persons.append((person))
+
+                
             }
         }
         // reset the names to empty

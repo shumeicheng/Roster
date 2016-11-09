@@ -22,7 +22,9 @@
 		F166A5C21DC99650004F81A0 /* RosterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166A5C11DC99650004F81A0 /* RosterTests.swift */; };
 		F166A5CD1DC99650004F81A0 /* RosterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166A5CC1DC99650004F81A0 /* RosterUITests.swift */; };
 		F182A8FE1DD03E8200551769 /* ClassListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F182A8FD1DD03E8200551769 /* ClassListViewController.swift */; };
-		F185746D1DCBFC100069CECF /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185746C1DCBFC100069CECF /* ClassViewController.swift */; };
+		F182A9001DD0458900551769 /* ClassRosterViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F182A8FF1DD0458900551769 /* ClassRosterViewControler.swift */; };
+		F182A9021DD39E3800551769 /* ReportDatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F182A9011DD39E3800551769 /* ReportDatesViewController.swift */; };
+		F185746D1DCBFC100069CECF /* ClassAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185746C1DCBFC100069CECF /* ClassAddViewController.swift */; };
 		F18574721DCC016B0069CECF /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18574711DCC016B0069CECF /* Person.swift */; };
 		F1DD836C1DCEAA7D0010DEDC /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DD836B1DCEAA7D0010DEDC /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -79,7 +81,9 @@
 		F166A5CC1DC99650004F81A0 /* RosterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterUITests.swift; sourceTree = "<group>"; };
 		F166A5CE1DC99650004F81A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F182A8FD1DD03E8200551769 /* ClassListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassListViewController.swift; sourceTree = "<group>"; };
-		F185746C1DCBFC100069CECF /* ClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassViewController.swift; sourceTree = "<group>"; };
+		F182A8FF1DD0458900551769 /* ClassRosterViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassRosterViewControler.swift; sourceTree = "<group>"; };
+		F182A9011DD39E3800551769 /* ReportDatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDatesViewController.swift; sourceTree = "<group>"; };
+		F185746C1DCBFC100069CECF /* ClassAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassAddViewController.swift; sourceTree = "<group>"; };
 		F18574711DCC016B0069CECF /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		F1DD836B1DCEAA7D0010DEDC /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,10 +170,12 @@
 			isa = PBXGroup;
 			children = (
 				F166A5AC1DC99650004F81A0 /* AppDelegate.swift */,
-				F185746C1DCBFC100069CECF /* ClassViewController.swift */,
+				F185746C1DCBFC100069CECF /* ClassAddViewController.swift */,
 				F166A5AE1DC99650004F81A0 /* RosterViewController.swift */,
 				F1DD836B1DCEAA7D0010DEDC /* TableViewCell.swift */,
 				F182A8FD1DD03E8200551769 /* ClassListViewController.swift */,
+				F182A8FF1DD0458900551769 /* ClassRosterViewControler.swift */,
+				F182A9011DD39E3800551769 /* ReportDatesViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -353,9 +359,11 @@
 				F124EB181DCFC1CF002B3D6E /* Class.swift in Sources */,
 				F1DD836C1DCEAA7D0010DEDC /* TableViewCell.swift in Sources */,
 				F124EB1A1DCFC22E002B3D6E /* Date.swift in Sources */,
-				F185746D1DCBFC100069CECF /* ClassViewController.swift in Sources */,
+				F185746D1DCBFC100069CECF /* ClassAddViewController.swift in Sources */,
 				F166A5AF1DC99650004F81A0 /* RosterViewController.swift in Sources */,
+				F182A9001DD0458900551769 /* ClassRosterViewControler.swift in Sources */,
 				F18574721DCC016B0069CECF /* Person.swift in Sources */,
+				F182A9021DD39E3800551769 /* ReportDatesViewController.swift in Sources */,
 				F182A8FE1DD03E8200551769 /* ClassListViewController.swift in Sources */,
 				F124EB1C1DCFC2EF002B3D6E /* Classes.swift in Sources */,
 				F166A5AD1DC99650004F81A0 /* AppDelegate.swift in Sources */,
