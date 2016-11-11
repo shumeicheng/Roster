@@ -43,9 +43,11 @@ class ClassListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
-            let thisClass = classList!.classes[indexPath.row]
-            try! realm!.write {
-                realm!.delete(thisClass)
+            if(indexPath.row < (classList?.classes.count)!) {
+                let thisClass = classList!.classes[indexPath.row]
+                try! realm!.write {
+                    realm!.delete(thisClass)
+                }
             }
         }
         

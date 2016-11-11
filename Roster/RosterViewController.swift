@@ -12,9 +12,7 @@ import RealmSwift
 class RosterViewController: UIViewController {
     var classes : Classes?
     var realm : Realm?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func getClasses()  {
         realm = try! Realm()
         classes = realm?.objects(Classes.self).first
         if( classes == nil) {
@@ -24,9 +22,15 @@ class RosterViewController: UIViewController {
             }
         }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        getClasses()
+    }
 
     @IBAction func createRoster(_ sender: AnyObject) {
        let vc = storyboard?.instantiateViewController(withIdentifier: "ClassAddViewController") as! ClassAddViewController
+        getClasses()
         vc.classes = classes
         present(vc, animated: true, completion: nil)
         

@@ -28,8 +28,20 @@ class ReportDatesViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReportDateCell", for: indexPath)
         let date = dates?[indexPath.row]
         
-        cell.textLabel?.text = String(describing: date?.date)
+        cell.textLabel?.text = String(describing: date!.date)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            if(indexPath.row < (dates?.count)!){
+                let date = dates?[indexPath.row]
+                try! realm!.write {
+                    realm!.delete(date!)
+                }
+            }
+        }
+
     }
     
     @IBAction func pressDone(_ sender: AnyObject) {

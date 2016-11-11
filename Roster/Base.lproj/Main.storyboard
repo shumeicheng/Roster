@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grU-RY-EoI">
-                                <frame key="frameInset" minX="138" minY="163" width="99" height="30"/>
+                                <rect key="frame" x="138" y="163" width="99" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.59946310336999986" green="1" blue="0.89354365788042567" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="CreateRoster"/>
@@ -29,7 +33,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sp1-LU-Wyq">
-                                <frame key="frameInset" minX="137" minY="330" width="100" height="30"/>
+                                <rect key="frame" x="137" y="330" width="100" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.48230805545790023" green="1" blue="0.93264834471725599" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="ListRoster"/>
@@ -58,17 +62,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="953-cV-oi6">
+                                <rect key="frame" x="0.0" y="165" width="375" height="502"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tableCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" id="RXs-dr-iWv" customClass="TableViewCell" customModule="Roster" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RXs-dr-iWv" id="GWM-8W-ur6">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qza-kS-zWg" userLabel="Name">
-                                                    <frame key="frameInset" minX="139" minY="6" width="97" height="30"/>
+                                                    <rect key="frame" x="139" y="6" width="97" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -87,6 +92,7 @@
                                 </connections>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RYM-MB-oyQ">
+                                <rect key="frame" x="0.0" y="40" width="375" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="done" id="JfQ-TN-Bta">
                                         <connections>
@@ -96,6 +102,7 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Class Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QS3-qx-nMw">
+                                <rect key="frame" x="94" y="98" width="208" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -139,13 +146,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wSq-JT-QTc">
+                                <rect key="frame" x="0.0" y="95" width="375" height="572"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="classCell" id="AHO-t0-PcO">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AHO-t0-PcO" id="VWs-ll-YQL">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -156,6 +164,7 @@
                                 </connections>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3wu-58-vad">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="done" id="IVE-ZZ-5bq">
                                         <connections>
@@ -194,14 +203,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F91-ci-mSZ">
+                                <rect key="frame" x="0.0" y="40" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="ClassName" id="lxb-hd-gx4">
+                                        <barButtonItem key="backBarButtonItem" title="ClassName" id="wqy-mY-ySZ">
+                                            <connections>
+                                                <action selector="pressClass:" destination="ysH-hy-h5J" id="Cdr-In-nQQ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <leftBarButtonItems>
+                                            <barButtonItem title="Done" id="pFh-Rs-Z7h">
+                                                <connections>
+                                                    <action selector="pressDone:" destination="ysH-hy-h5J" id="Hds-gr-6wm"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Add" id="5Hr-2r-FnZ">
+                                                <connections>
+                                                    <action selector="addMember:" destination="ysH-hy-h5J" id="6V4-n4-ggP"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </leftBarButtonItems>
+                                        <rightBarButtonItems>
+                                            <barButtonItem title="Report" id="4Dr-26-rfi">
+                                                <connections>
+                                                    <action selector="pressReport:" destination="ysH-hy-h5J" id="dav-jZ-dFh"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="CheckIn" id="e2M-9e-T80" userLabel="CheckIn">
+                                                <connections>
+                                                    <action selector="pressCheckIn:" destination="ysH-hy-h5J" id="Pns-Ok-ZDu"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="class name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAb-HO-xoa">
+                                <rect key="frame" x="33" y="120" width="311" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lE8-Ef-2vN">
+                                <rect key="frame" x="16" y="170" width="343" height="477"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="classRosterCell" id="e0A-xY-rbr">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e0A-xY-rbr" id="Xxa-Nq-t4i">
-                                            <frame key="frameInset" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -211,38 +263,27 @@
                                     <outlet property="delegate" destination="ysH-hy-h5J" id="wIJ-fn-KS4"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F91-ci-mSZ">
-                                <items>
-                                    <navigationItem title="ClassName" id="lxb-hd-gx4">
-                                        <barButtonItem key="backBarButtonItem" title="ClassName" id="wqy-mY-ySZ"/>
-                                        <barButtonItem key="leftBarButtonItem" title="Done" id="pFh-Rs-Z7h">
-                                            <connections>
-                                                <action selector="pressDone:" destination="ysH-hy-h5J" id="Hds-gr-6wm"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Report" id="4Dr-26-rfi">
-                                            <connections>
-                                                <action selector="pressReport:" destination="ysH-hy-h5J" id="dav-jZ-dFh"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="F91-ci-mSZ" secondAttribute="trailing" id="8SE-AT-hFC"/>
-                            <constraint firstItem="KYf-Sc-RkJ" firstAttribute="top" secondItem="lE8-Ef-2vN" secondAttribute="bottom" constant="8" id="E5l-GQ-tfi"/>
+                            <constraint firstItem="KYf-Sc-RkJ" firstAttribute="top" secondItem="lE8-Ef-2vN" secondAttribute="bottom" constant="20" id="E5l-GQ-tfi"/>
+                            <constraint firstItem="WAb-HO-xoa" firstAttribute="leading" secondItem="3a7-X7-YHm" secondAttribute="leadingMargin" constant="17" id="HFX-9Z-7Ox"/>
+                            <constraint firstItem="WAb-HO-xoa" firstAttribute="top" secondItem="F91-ci-mSZ" secondAttribute="bottom" constant="36" id="QSz-jO-sae"/>
                             <constraint firstItem="lE8-Ef-2vN" firstAttribute="trailing" secondItem="3a7-X7-YHm" secondAttribute="trailingMargin" id="S0t-FZ-bgY"/>
                             <constraint firstItem="lE8-Ef-2vN" firstAttribute="leading" secondItem="3a7-X7-YHm" secondAttribute="leadingMargin" id="TiC-RC-8vD"/>
-                            <constraint firstItem="lE8-Ef-2vN" firstAttribute="top" secondItem="ckO-TX-aAU" secondAttribute="bottom" constant="74" id="iOm-wW-uTH"/>
+                            <constraint firstItem="lE8-Ef-2vN" firstAttribute="top" secondItem="ckO-TX-aAU" secondAttribute="bottom" constant="150" id="iOm-wW-uTH"/>
                             <constraint firstItem="F91-ci-mSZ" firstAttribute="top" secondItem="ckO-TX-aAU" secondAttribute="bottom" constant="20" id="iwc-gi-J9U"/>
-                            <constraint firstItem="lE8-Ef-2vN" firstAttribute="top" secondItem="F91-ci-mSZ" secondAttribute="bottom" constant="10" id="kEk-4L-Z6f"/>
+                            <constraint firstItem="lE8-Ef-2vN" firstAttribute="top" secondItem="F91-ci-mSZ" secondAttribute="bottom" constant="86" id="kEk-4L-Z6f"/>
+                            <constraint firstItem="lE8-Ef-2vN" firstAttribute="top" secondItem="WAb-HO-xoa" secondAttribute="bottom" constant="29" id="mcZ-eM-E3x"/>
                             <constraint firstItem="F91-ci-mSZ" firstAttribute="leading" secondItem="3a7-X7-YHm" secondAttribute="leading" id="sip-kB-UpK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WAb-HO-xoa" secondAttribute="trailing" constant="15" id="wOS-4o-8Yx"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="className" destination="WAb-HO-xoa" id="7eM-m0-mYw"/>
                         <outlet property="navigationBar" destination="F91-ci-mSZ" id="jIg-9d-33e"/>
+                        <outlet property="tableView" destination="lE8-Ef-2vN" id="dPQ-v5-HQz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ec-PD-yq9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -262,13 +303,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G0K-u9-3zn">
+                                <rect key="frame" x="0.0" y="133" width="375" height="534"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReportDateCell" id="DST-rj-Nxe">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DST-rj-Nxe" id="7mE-f0-27q">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -279,6 +321,7 @@
                                 </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="272-0M-Tav">
+                                <rect key="frame" x="0.0" y="53" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Dates" id="tdi-rN-Su0">
                                         <barButtonItem key="leftBarButtonItem" title="Done" id="HO6-Ko-hFB">
