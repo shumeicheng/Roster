@@ -94,6 +94,23 @@ class ClassRosterViewController: UIViewController, UITableViewDelegate, UITableV
             }}
         )
         alertController.addAction(cancelAction)
+        let reportAction = UIAlertAction(title: "Report", style: .default, handler: {
+            action in
+            switch action.style {
+            case .default:
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "ReportDatesViewController") as! ReportDatesViewController
+                vc.dates = self.thisPerson?.dates
+                self.present(vc, animated: true, completion: nil)
+                break
+                
+            case .cancel:
+                break
+                
+            case .destructive:
+                break
+            }}
+        )
+        alertController.addAction(reportAction)
 
         present(alertController, animated: true, completion: nil)
     }
@@ -123,8 +140,9 @@ class ClassRosterViewController: UIViewController, UITableViewDelegate, UITableV
             }}
         )
         alert.addAction(defaultAction)
-        let cancelAction = UIAlertAction(title: "cancel", style: .default, handler:nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler:nil)
         alert.addAction(cancelAction)
+        
         alert.addTextField(configurationHandler: nil)
         
         present(alert, animated: true, completion: nil)
