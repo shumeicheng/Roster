@@ -13,7 +13,7 @@ import RealmSwift
 class ReportDatesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var realm: Realm?
-    var dates: List<Date>?
+    var dates: List<MyDate>?
     
     override func viewDidLoad() {
         try! realm = Realm()
@@ -28,8 +28,63 @@ class ReportDatesViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReportDateCell", for: indexPath)
         let date = dates?[indexPath.row]
         
-        cell.textLabel?.text = String(describing: date!.date)
+        cell.textLabel?.text = String(describing: date!.theDate)
         return cell
+    }
+    
+    func changeIt(indexPath: IndexPath, cell: UITableViewCell) {
+        let alertController = UIAlertController(title: "Edit the date", message: "ok", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addTextField(configurationHandler: nil)
+        var text = ""
+        let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: {
+            action in
+            switch action.style {
+            case .default:
+               
+
+                text = (alertController.textFields?[0].text)!
+                cell.textLabel?.text = text
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let newDate = dateFormatter.date(from: text)
+                let tDate = (self.dates?[indexPath.row])!
+                try! self.realm?.write
+                    {
+                  tDate.theDate
+                    = newDate!
+                }
+                break
+                
+            case .cancel:
+                break
+                
+            case .destructive:
+                break
+            }}
+        )
+        alertController.addAction(defaultAction)
+        let cancelAction = UIAlertAction(title: "cancel", style: .default, handler: {
+            action in
+            switch action.style {
+            case .default:
+                
+                break
+                
+            case .cancel:
+                break
+                
+            case .destructive:
+                break
+            }}
+        )
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        _ = dates?[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReportDateCell", for: indexPath)
+        changeIt(indexPath: indexPath, cell: cell)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

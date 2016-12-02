@@ -8,8 +8,8 @@
 
 import Foundation
 import RealmSwift
-class Date: Object {
-    dynamic var date = NSDate()
+class MyDate: Object {
+    dynamic var theDate = Date()
     let classes = LinkingObjects(fromType: Class.self, property: "dates")
     let persons = LinkingObjects(fromType: Person.self, property: "dates")
 }

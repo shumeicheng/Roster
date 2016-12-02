@@ -16,15 +16,15 @@ class ClassRosterViewController: UIViewController, UITableViewDelegate, UITableV
     var thisPerson:Person?
     var realm: Realm?
     var thisClass : Class?
-    var todayDate: Date?
+    var todayDate: MyDate?
     
     @IBOutlet weak var className: UILabel!
     @IBOutlet weak var navigationBar: UINavigationBar!
     override func viewDidLoad() {
         navigationBar.topItem?.title = thisClass?.name
         realm = try! Realm()
-        todayDate = Date()
-        todayDate?.date = NSDate()
+        todayDate = MyDate()
+        todayDate?.theDate = Date()
         try! realm?.write{
             realm?.add(todayDate!)
         }

@@ -12,6 +12,6 @@ import RealmSwift
 class Person: Object {
     dynamic var name : String = ""
     let classes = LinkingObjects(fromType: Class.self, property: "persons")
-    let dates = List<Date>()
+    let dates = List<MyDate>()
 }
 

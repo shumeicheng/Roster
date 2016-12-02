@@ -3,12 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		F124EB181DCFC1CF002B3D6E /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = F124EB171DCFC1CF002B3D6E /* Class.swift */; };
-		F124EB1A1DCFC22E002B3D6E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F124EB191DCFC22E002B3D6E /* Date.swift */; };
+		F124EB1A1DCFC22E002B3D6E /* MyDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F124EB191DCFC22E002B3D6E /* MyDate.swift */; };
 		F124EB1C1DCFC2EF002B3D6E /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F124EB1B1DCFC2EF002B3D6E /* Classes.swift */; };
 		F166A5AD1DC99650004F81A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166A5AC1DC99650004F81A0 /* AppDelegate.swift */; };
 		F166A5AF1DC99650004F81A0 /* RosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166A5AE1DC99650004F81A0 /* RosterViewController.swift */; };
@@ -63,7 +63,7 @@
 
 /* Begin PBXFileReference section */
 		F124EB171DCFC1CF002B3D6E /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
-		F124EB191DCFC22E002B3D6E /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		F124EB191DCFC22E002B3D6E /* MyDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDate.swift; sourceTree = "<group>"; };
 		F124EB1B1DCFC2EF002B3D6E /* Classes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		F166A5A91DC99650004F81A0 /* Roster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F166A5AC1DC99650004F81A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 			children = (
 				F18574711DCC016B0069CECF /* Person.swift */,
 				F124EB171DCFC1CF002B3D6E /* Class.swift */,
-				F124EB191DCFC22E002B3D6E /* Date.swift */,
+				F124EB191DCFC22E002B3D6E /* MyDate.swift */,
 				F124EB1B1DCFC2EF002B3D6E /* Classes.swift */,
 			);
 			name = Model;
@@ -286,7 +286,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Shu-Mei Cheng";
 				TargetAttributes = {
 					F166A5A81DC9964F004F81A0 = {
@@ -309,7 +309,7 @@
 				};
 			};
 			buildConfigurationList = F166A5A41DC9964F004F81A0 /* Build configuration list for PBXProject "Roster" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -378,7 +378,7 @@
 			files = (
 				F124EB181DCFC1CF002B3D6E /* Class.swift in Sources */,
 				F1DD836C1DCEAA7D0010DEDC /* TableViewCell.swift in Sources */,
-				F124EB1A1DCFC22E002B3D6E /* Date.swift in Sources */,
+				F124EB1A1DCFC22E002B3D6E /* MyDate.swift in Sources */,
 				F185746D1DCBFC100069CECF /* ClassAddViewController.swift in Sources */,
 				F166A5AF1DC99650004F81A0 /* RosterViewController.swift in Sources */,
 				F182A9001DD0458900551769 /* ClassRosterViewControler.swift in Sources */,
@@ -459,6 +459,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -509,6 +510,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

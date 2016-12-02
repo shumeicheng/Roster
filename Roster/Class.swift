@@ -12,5 +12,5 @@ import RealmSwift
 class Class: Object {
     dynamic var name: String = ""
     let persons = List<Person>()
-    let dates = List<Date>()
+    let dates = List<MyDate>()
 }
