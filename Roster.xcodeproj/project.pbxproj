@@ -17,6 +17,7 @@
 		F166A5B71DC99650004F81A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F166A5B51DC99650004F81A0 /* LaunchScreen.storyboard */; };
 		F166A5C21DC99650004F81A0 /* RosterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166A5C11DC99650004F81A0 /* RosterTests.swift */; };
 		F166A5CD1DC99650004F81A0 /* RosterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166A5CC1DC99650004F81A0 /* RosterUITests.swift */; };
+		F173C89D1DFA7C6300283418 /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173C89C1DFA7C6300283418 /* CalendarEvent.swift */; };
 		F182A8FE1DD03E8200551769 /* ClassListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F182A8FD1DD03E8200551769 /* ClassListViewController.swift */; };
 		F182A9001DD0458900551769 /* ClassRosterViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F182A8FF1DD0458900551769 /* ClassRosterViewControler.swift */; };
 		F182A9021DD39E3800551769 /* ReportDatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F182A9011DD39E3800551769 /* ReportDatesViewController.swift */; };
@@ -78,6 +79,7 @@
 		F166A5C81DC99650004F81A0 /* RosterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RosterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F166A5CC1DC99650004F81A0 /* RosterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterUITests.swift; sourceTree = "<group>"; };
 		F166A5CE1DC99650004F81A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F173C89C1DFA7C6300283418 /* CalendarEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEvent.swift; sourceTree = "<group>"; };
 		F182A8FD1DD03E8200551769 /* ClassListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassListViewController.swift; sourceTree = "<group>"; };
 		F182A8FF1DD0458900551769 /* ClassRosterViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassRosterViewControler.swift; sourceTree = "<group>"; };
 		F182A9011DD39E3800551769 /* ReportDatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDatesViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				F182A8FD1DD03E8200551769 /* ClassListViewController.swift */,
 				F182A8FF1DD0458900551769 /* ClassRosterViewControler.swift */,
 				F182A9011DD39E3800551769 /* ReportDatesViewController.swift */,
+				F173C89C1DFA7C6300283418 /* CalendarEvent.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				F182A9021DD39E3800551769 /* ReportDatesViewController.swift in Sources */,
 				F182A8FE1DD03E8200551769 /* ClassListViewController.swift in Sources */,
 				F124EB1C1DCFC2EF002B3D6E /* Classes.swift in Sources */,
+				F173C89D1DFA7C6300283418 /* CalendarEvent.swift in Sources */,
 				F166A5AD1DC99650004F81A0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
