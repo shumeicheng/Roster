@@ -14,6 +14,7 @@ class ReportDatesViewController: UIViewController, UITableViewDelegate, UITableV
     
     var realm: Realm?
     var dates: List<MyDate>?
+    var thisClass: Class?
     
     override func viewDidLoad() {
         try! realm = Realm()
@@ -53,6 +54,12 @@ class ReportDatesViewController: UIViewController, UITableViewDelegate, UITableV
                   tDate.theDate
                     = newDate!
                 }
+                var nsDate: NSDate?
+                nsDate = newDate! as NSDate?
+                // add it to Calendar
+                CalendarEvent().addEventToCalendar(title: self.thisClass!.name, description: self.thisClass!.name, startDate: nsDate!, endDate: nsDate! )
+                
+
                 break
                 
             case .cancel:
@@ -91,9 +98,17 @@ class ReportDatesViewController: UIViewController, UITableViewDelegate, UITableV
         if editingStyle == UITableViewCellEditingStyle.delete {
             if(indexPath.row < (dates?.count)!){
                 let date = dates?[indexPath.row]
+                var nsDate : NSDate?
+               
+                nsDate = date?.theDate as NSDate?
+            
                 try! realm!.write {
                     realm!.delete(date!)
                 }
+                // delete it from Calendar
+                CalendarEvent().removeEventFromCalendar(title: thisClass!.name, description: thisClass!.name, startDate: nsDate!, endDate: nsDate! )
+                
+
             }
         }
 

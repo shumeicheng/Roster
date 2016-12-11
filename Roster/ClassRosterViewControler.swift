@@ -17,6 +17,7 @@ class ClassRosterViewController: UIViewController, UITableViewDelegate, UITableV
     var realm: Realm?
     var thisClass : Class?
     var todayDate: MyDate?
+    let myCalendarEvent = CalendarEvent()
     
     @IBOutlet weak var className: UILabel!
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -53,7 +54,8 @@ class ClassRosterViewController: UIViewController, UITableViewDelegate, UITableV
         try! realm!.write {
             thisClass?.dates.append(todayDate!)
         }
-
+// add to the calendar
+        myCalendarEvent.addEventToCalendar(title: thisClass!.name, description: thisClass!.name, startDate: todayDate!.theDate as NSDate, endDate: todayDate!.theDate as NSDate)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -100,6 +102,7 @@ class ClassRosterViewController: UIViewController, UITableViewDelegate, UITableV
             case .default:
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "ReportDatesViewController") as! ReportDatesViewController
                 vc.dates = self.thisPerson?.dates
+                vc.thisClass = self.thisClass
                 self.present(vc, animated: true, completion: nil)
                 break
                 
@@ -168,6 +171,7 @@ class ClassRosterViewController: UIViewController, UITableViewDelegate, UITableV
     @IBAction func pressReport(_ sender: AnyObject) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "ReportDatesViewController") as! ReportDatesViewController
         vc.dates = thisClass?.dates
+        vc.thisClass = thisClass
         present(vc, animated: true, completion: nil)
     }
     
