@@ -22,7 +22,8 @@ class ClassRosterViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var className: UILabel!
     @IBOutlet weak var navigationBar: UINavigationBar!
     override func viewDidLoad() {
-        navigationBar.topItem?.title = thisClass?.name
+        navigationBar.topItem?.title = ""//thisClass?.name
+        
         realm = try! Realm()
         todayDate = MyDate()
         todayDate?.theDate = Date()
@@ -60,17 +61,17 @@ class ClassRosterViewController: UIViewController, UITableViewDelegate, UITableV
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         thisPerson = (thisClass?.persons[indexPath.row])! as Person
-        checkIn(handler: personCheckin())
+        checkIn(handler: personCheckin)
     }
     
-    func checkIn(handler: (())){
+    func checkIn(handler: @escaping ()->Void){
         let alertController = UIAlertController(title: "Check in:", message: "Check in now?", preferredStyle: .alert)
     
         let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: {
         action in
             switch action.style {
             case .default:
-                handler
+                handler()
                 break
                 
             case .cancel:
@@ -164,8 +165,23 @@ class ClassRosterViewController: UIViewController, UITableViewDelegate, UITableV
 
     }
     
+    @IBAction func pressReset(_ sender: Any) {
+        try! realm!.write {
+          let persons = thisClass?.persons
+        
+        // for every persons clear up its dates
+          for person in persons! {            
+              person.dates.removeAll()
+          }
+        }
+        try! realm!.write {
+          thisClass?.dates.removeAll()
+        }
+        tableView.reloadData()
+    }
+    
     @IBAction func pressCheckIn(_ sender: Any) {
-        checkIn(handler: classCheckin())
+        checkIn(handler: classCheckin)
     }
     
     @IBAction func pressReport(_ sender: AnyObject) {

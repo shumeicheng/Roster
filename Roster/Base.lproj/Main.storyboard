@@ -207,7 +207,7 @@
                                 <rect key="frame" x="0.0" y="40" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="ClassName" id="lxb-hd-gx4">
-                                        <barButtonItem key="backBarButtonItem" title="ClassName" id="wqy-mY-ySZ">
+                                        <barButtonItem key="backBarButtonItem" title="ClassName" id="wqy-mY-ySZ" userLabel="ClassName">
                                             <connections>
                                                 <action selector="pressClass:" destination="ysH-hy-h5J" id="Cdr-In-nQQ"/>
                                             </connections>
@@ -221,6 +221,11 @@
                                             <barButtonItem title="Add" id="5Hr-2r-FnZ">
                                                 <connections>
                                                     <action selector="addMember:" destination="ysH-hy-h5J" id="6V4-n4-ggP"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Reset" id="rkM-c2-zj4">
+                                                <connections>
+                                                    <action selector="pressReset:" destination="ysH-hy-h5J" id="8su-pM-khg"/>
                                                 </connections>
                                             </barButtonItem>
                                         </leftBarButtonItems>
@@ -253,7 +258,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e0A-xY-rbr" id="Xxa-Nq-t4i">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

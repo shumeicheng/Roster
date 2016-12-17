@@ -28,7 +28,6 @@ class ReportDatesViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReportDateCell", for: indexPath)
         let date = dates?[indexPath.row]
-        
         cell.textLabel?.text = String(describing: date!.theDate)
         return cell
     }
@@ -41,8 +40,6 @@ class ReportDatesViewController: UIViewController, UITableViewDelegate, UITableV
             action in
             switch action.style {
             case .default:
-               
-
                 text = (alertController.textFields?[0].text)!
                 cell.textLabel?.text = text
                 let dateFormatter = DateFormatter()
