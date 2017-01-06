@@ -41,7 +41,7 @@ class ClassAddViewController: UIViewController, UITableViewDataSource, UITableVi
             classN = textField.text!
         }else {
             nameJustEntered = textField.text!
-            tableViewCell?.textLabel?.text = nameJustEntered
+            tableViewCell?.textLabel?.text = String(currentIndex + 1) + ". " + nameJustEntered
             tableViewCell!.name.isHidden = true
             names[currentIndex] = textField.text!
             tableView.reloadData()
@@ -54,7 +54,8 @@ class ClassAddViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
-        cell.textLabel?.text = names[indexPath.row]
+        cell.textLabel?.text = String(indexPath.row + 1) + ". " + names[indexPath.row]
+    
         return cell
     }
  
