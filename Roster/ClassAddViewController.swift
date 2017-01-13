@@ -36,9 +36,21 @@ class ClassAddViewController: UIViewController, UITableViewDataSource, UITableVi
         return 35
     }
     
+    func alertInvalidName() -> Bool{
+        if(classN.isEmpty){
+            let alert = UIAlertController(title: "Invalid name", message: "empty name, please make sure to press enter.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return true
+        }else {
+            return false
+        }
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if (textField.tag == 1 ){ // class name
             classN = textField.text!
+            alertInvalidName()
         }else {
             nameJustEntered = textField.text!
             tableViewCell?.textLabel?.text = String(currentIndex + 1) + ". " + nameJustEntered
@@ -64,11 +76,15 @@ class ClassAddViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.name.delegate = self
         tableViewCell = cell
         currentIndex = indexPath.row
-        //print(cell.name.text)
+        cell.textLabel?.text = String(indexPath.row + 1) + ". "
+       // print(cell.name.text)
     }
     
     @IBAction func pressDone(_ sender: AnyObject) {
         // create Realm name objects
+                if(alertInvalidName() == true ){
+            return
+        }
         thisClass = Class()
         thisClass?.name = classN
 
