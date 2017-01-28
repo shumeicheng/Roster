@@ -16,67 +16,91 @@ class Model {
     
     func saveDB()
     {
-       // let classes = realm.objects(Classes.self)
+     // let classes = realm.objects(Classes.self)
+    
         let classList = realm.objects(Classes.self).first
-        
         for aclass in (classList?.classes)! {
-            print (aclass.name)
-            if(aclass.name.isEmpty){ // bad data
+            if(aclass.name.isEmpty){
                 continue
             }
-            
-            var studentIds = [CKRecordID]()
-
-            let classId = CKRecordID(recordName: aclass.name)
-            let aClass = CKRecord(recordType: "ClassItem", recordID: classId)
-            
-            aClass.setObject(aclass.name as CKRecordValue?, forKey: "ClassName")
-            
-            // aClass new or existing one
-            
-            aClass.setObject(studentIds as CKRecordValue?, forKey: "StudentNames")
+            //print(aclass.name)
             let persons = aclass.persons
-            for aperson in persons {
-                let id = CKRecordID(recordName: aperson.name)
-                let aName = CKRecord(recordType: "StudentName", recordID: id)
-
-                //let studentNameId = CKRecordID(recordName: aperson.name)
-                studentIds.append(id) // reference list
-                
-                let firstName = aperson.name.components(separatedBy: " ")[0]
-                let lastName = aperson.name.components(separatedBy: " ")[1]
-                aName.setObject(firstName as CKRecordValue, forKey:
-                "FirstName")
-                aName.setObject(lastName as CKRecordValue, forKey: "LastName")
-                
-                publicDB.save(aName, completionHandler: {
+            var studentIds = [CKReference]()
+            for person in persons {
+               // print(person.name)
+                let id = CKRecordID(recordName: person.name)
+                var aNameRecord: CKRecord?
+                publicDB.fetch(withRecordID: id, completionHandler: {
                     (record,error) in
-                    guard (error == nil) else {
-                        print(error!)
+                    guard(error == nil) else {
+                        print(error)
+                        aNameRecord = CKRecord(recordType: "Student", recordID: id)
+                        let firstName = person.name.components(separatedBy: " ")[0]
+                        var lastName = ""
+                        if(person.name.components(separatedBy: " ").count > 1){
+                            lastName = person.name.components(separatedBy: " ")[1]
+                        }else{
+                            lastName = "empty"
+                        }
+                        aNameRecord?.setObject(firstName as CKRecordValue, forKey:
+                            "FirstName")
+                        aNameRecord?.setObject(lastName as CKRecordValue, forKey: "LastName")
+                        self.publicDB.save(aNameRecord!, completionHandler: {
+                            (record:CKRecord?,error:Error?) in
+                            guard(error == nil) else {
+                                print(error!)
+                                return
+                            }
+                            print("save aNameRecord",person.name)
+                        } )
+
                         return
                     }
-                    
+                    aNameRecord = record
+                    let reference = CKReference(recordID: id, action: .deleteSelf)
+                    studentIds.append(reference )
                 })
-
+                
             }
-            publicDB.save(aClass, completionHandler: {
-                (record,error) in
-                guard (error == nil) else {
+            
+            let classId = CKRecordID(recordName: aclass.name)
+            var aClass: CKRecord?
+            publicDB.fetch(withRecordID: classId, completionHandler: {(classRecord,error) in
+                guard(error == nil) else {
                     print(error!)
+                    aClass = CKRecord(recordType: "Classes", recordID: classId)
+                    aClass?.setObject(aclass.name as CKRecordValue? , forKey: "ClassName")
+                    // setup student list and save the record
+                    self.saveTheClass(aClass: aClass!,studentIds: studentIds)
                     return
                 }
+                aClass = classRecord
+                self.saveTheClass(aClass: aClass!,studentIds: studentIds)
+
+
             })
             
         }
-        
-        checkDB()
+ 
+         //checkDB()
     }
-    
-    func checkDB(){
-        let predicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: "ClassItem", predicate: predicate)
+    func saveTheClass(aClass: CKRecord, studentIds: [CKReference])
+    {
+        aClass.setObject(studentIds as CKRecordValue?, forKey: "Students")
+        self.publicDB.save(aClass, completionHandler: {
+            (record,error) in
+            guard (error == nil) else{
+                print(error!)
+                return
+            }
+        })
         
-        publicDB.perform(query, inZoneWith: nil, completionHandler: { (records,error) in
+
+    }
+    func checkDB(){
+        let predicate = NSPredicate(value:true)
+        let query = CKQuery(recordType: "Classes", predicate: predicate)
+        publicDB.perform(query, inZoneWith: nil, completionHandler: { (records:[CKRecord]?,error:Error?) in
             guard (error == nil) else {
                 print (error!)
                 return
@@ -86,23 +110,25 @@ class Model {
             }
             for r in records! {
                 let className = r.object(forKey: "ClassName") as! String
-                let ids = r.object(forKey: "StudentNames") as! [CKRecordID]
+                let aNames = r.object(forKey: "Students") as! [CKReference]
                 print(className)
-                for id in ids {
-                    self.publicDB.fetch(withRecordID: id, completionHandler: {
-                        (student,error) in
-                        guard( error == nil) else {
-                            print(error!)
+                for aName in aNames {
+                    self.publicDB.fetch(withRecordID: aName.recordID, completionHandler: {
+                        (record,error) in
+                        guard(error == nil) else {
+                            print(error)
                             return
                         }
-                        let firstName = student?.object(forKey: "FirstName") as! String
-                        let lastName = student?.object(forKey: "LastName") as! String
+                        
+                        let firstName = record?.object(forKey: "FirstName") as! String
+                        let lastName = record?.object(forKey: "LastName") as! String
                         print (firstName, lastName)
+
                     })
+                   
                 }
             }
-        })
-        
+        } )
     }
     
 }
