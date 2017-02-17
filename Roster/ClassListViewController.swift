@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import RealmSwift
+import CloudKit
 
 class ClassListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     var realm: Realm?
@@ -18,6 +19,8 @@ class ClassListViewController: UIViewController, UITableViewDelegate, UITableVie
         realm = try! Realm()
         classList = realm?.objects(Classes.self).first
     }
+    
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return classList!.classes.count
@@ -50,8 +53,8 @@ class ClassListViewController: UIViewController, UITableViewDelegate, UITableVie
                 }
             }
         }
-        
     }
+    
     @IBAction func pressDone(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
     }
