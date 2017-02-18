@@ -15,19 +15,21 @@ class RosterViewController: UIViewController {
     var realm : Realm?
     
     func getClasses()  {
+        
         realm = try! Realm()
-        classes = realm?.objects(Classes.self).first
-        if( classes == nil) {
+
+        classes = self.realm?.objects(Classes.self).first
+        if(classes == nil) {
             classes = Classes()
             try! realm?.write(){
-                realm?.add(classes!)
+                realm?.add(self.classes!)
             }
         }
+      
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     func isICloudContainerAvailable()->Bool {

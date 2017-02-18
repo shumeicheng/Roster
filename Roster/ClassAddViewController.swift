@@ -29,11 +29,7 @@ class ClassAddViewController: UIViewController, UITableViewDataSource, UITableVi
        
     }
     
-    
-    override func viewWillDisappear(_ animated: Bool) {
         
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 35
     }

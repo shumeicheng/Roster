@@ -12,12 +12,14 @@ import RealmSwift
 
 class Model {
     let publicDB = CKContainer.default().publicCloudDatabase
-    let realm : Realm = try! Realm()
+   
     
     func saveDB()
     {
+         let realm = try! Realm()
+        
      // let classes = realm.objects(Classes.self)
-    
+        
         let classList = realm.objects(Classes.self).first
         for aclass in (classList?.classes)! {
             if(aclass.name.isEmpty){
@@ -29,29 +31,29 @@ class Model {
             for person in persons {
                // print(person.name)
                 let id = CKRecordID(recordName: person.name)
+                let firstName = person.name.components(separatedBy: " ")[0]
+                var lastName: String?
+                if(person.name.components(separatedBy: " ").count > 1){
+                    lastName = person.name.components(separatedBy: " ")[1]
+                }else{
+                    lastName = "empty"
+                }
+
                 var aNameRecord: CKRecord?
-                publicDB.fetch(withRecordID: id, completionHandler: {
+                self.publicDB.fetch(withRecordID: id, completionHandler: {
                     (record,error) in
                     guard(error == nil) else {
-                        print(error)
+                        //print(error)
                         aNameRecord = CKRecord(recordType: "Student", recordID: id)
-                        let firstName = person.name.components(separatedBy: " ")[0]
-                        var lastName = ""
-                        if(person.name.components(separatedBy: " ").count > 1){
-                            lastName = person.name.components(separatedBy: " ")[1]
-                        }else{
-                            lastName = "empty"
-                        }
                         aNameRecord?.setObject(firstName as CKRecordValue, forKey:
                             "FirstName")
-                        aNameRecord?.setObject(lastName as CKRecordValue, forKey: "LastName")
+                        aNameRecord?.setObject(lastName as? CKRecordValue, forKey: "LastName")
                         self.publicDB.save(aNameRecord!, completionHandler: {
                             (record:CKRecord?,error:Error?) in
                             guard(error == nil) else {
                                 print(error!)
                                 return
                             }
-                            print("save aNameRecord",person.name)
                         } )
 
                         return
@@ -65,11 +67,12 @@ class Model {
             
             let classId = CKRecordID(recordName: aclass.name)
             var aClass: CKRecord?
-            publicDB.fetch(withRecordID: classId, completionHandler: {(classRecord,error) in
+            let className =  aclass.name
+            self.publicDB.fetch(withRecordID: classId, completionHandler: {(classRecord,error) in
                 guard(error == nil) else {
-                    print(error!)
+                    //print(error!)
                     aClass = CKRecord(recordType: "Classes", recordID: classId)
-                    aClass?.setObject(aclass.name as CKRecordValue? , forKey: "ClassName")
+                    aClass?.setObject(className as CKRecordValue? , forKey: "ClassName")
                     // setup student list and save the record
                     self.saveTheClass(aClass: aClass!,studentIds: studentIds)
                     return
@@ -81,6 +84,7 @@ class Model {
             })
             
         }
+      
  
          //checkDB()
     }
@@ -116,7 +120,7 @@ class Model {
                     self.publicDB.fetch(withRecordID: aName.recordID, completionHandler: {
                         (record,error) in
                         guard(error == nil) else {
-                            print(error)
+                            //print(error)
                             return
                         }
                         

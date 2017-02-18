@@ -20,7 +20,6 @@ class ClassListViewController: UIViewController, UITableViewDelegate, UITableVie
         classList = realm?.objects(Classes.self).first
     }
     
-
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return classList!.classes.count

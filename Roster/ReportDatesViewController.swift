@@ -45,6 +45,15 @@ class ReportDatesViewController: UIViewController, UITableViewDelegate, UITableV
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd"
                 let newDate = dateFormatter.date(from: text)
+                if(newDate == nil){
+                    let warnAlert = UIAlertController(title: "Invalid Format", message: "the format should be yyyy-MM-dd.", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "Ok", style: .default, handler: {
+                    (action)  in
+                    self.dismiss(animated: true, completion: nil)})
+                    warnAlert.addAction(ok)
+                    self.present(warnAlert, animated: true, completion: nil)
+                    return
+                }
                 let tDate = (self.dates?[indexPath.row])!
                 try! self.realm?.write
                     {
