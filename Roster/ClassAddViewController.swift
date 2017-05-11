@@ -78,6 +78,10 @@ class ClassAddViewController: UIViewController, UITableViewDataSource, UITableVi
        // print(cell.name.text)
     }
     
+    @IBAction func pressCancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func pressDone(_ sender: AnyObject) {
         // create Realm name objects
                 if(alertInvalidName() == true ){
