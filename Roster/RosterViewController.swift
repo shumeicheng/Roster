@@ -15,9 +15,7 @@ class RosterViewController: UIViewController {
     var realm : Realm?
     
     func getClasses()  {
-        
         realm = try! Realm()
-
         classes = self.realm?.objects(Classes.self).first
         if(classes == nil) {
             classes = Classes()
@@ -25,7 +23,16 @@ class RosterViewController: UIViewController {
                 realm?.add(self.classes!)
             }
         }
-      
+    }
+    
+    func checkClases() -> Bool {
+        realm = try! Realm()
+        classes = self.realm?.objects(Classes.self).first
+        if(classes == nil) {
+            return false
+        }else {
+            return true
+        }
     }
     
     override func viewDidLoad() {
@@ -68,6 +75,12 @@ class RosterViewController: UIViewController {
     }
     
     @IBAction func listRoster(_ sender: AnyObject) {
+        if( checkClases() == false ){
+            let alert = UIAlertController(title: "No clases found", message: "Please create clases first.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
         let vc = storyboard?.instantiateViewController(withIdentifier: "ClassListViewController") as! ClassListViewController
         present(vc, animated: true, completion: nil)
         
